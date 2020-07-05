@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const ReactionRole = require("reaction-role");
-const reactionRole = new ReactionRole("Njk5MDA5NTA5MDQ1MzA1Mzc0.XvKB_A.fXqomS741gUeaenHL1l73m1KJJ4");
+const reactionRole = new ReactionRole("TOKEN");
 module.exports = {
 	name: 'reactionrolemaker',
 	aliases: ["rrm", "reactionmake"],
