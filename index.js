@@ -82,18 +82,6 @@ channel1.send(messageDelete)
     
   }
 });
-bot.music = new (require('discord.js-lavalink-musicbot'))(bot, {
-  lavalink: {
-      "restnode": {
-          "host": "localhost",
-          "port": 8080,
-          "password":"youshallnotpass"
-      },
-      "nodes": [
-          { "host": "localhost", "port": 8080, "region": "asia", "password": "youshallnotpass" }
-      ]
-  },
-  admins: ["443166863996878878"]
-});
+
 
 client.login(token)
