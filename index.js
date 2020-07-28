@@ -11,9 +11,36 @@ const sql = require('sqlite');
 const ytdl = require("ytdl-core");
 const queue = new Map();
 const bot = new Discord.Client();
-const { ErelaClient, Utils } = require("erela.js")
+const handler = require('@tomdev/discord.js-command-handler')
+const { ErelaClient, Utils } = require("erela.js");
+const { Color, green, magenta, blue } = require('chalk');
+const { orange } = require('color-name');
 var prefix = "!l"
+let sleep = require('js-sleepms');
 
+const wait = require('waait');
+client.on('ready', (ready) => { 
+  console.log(chalk.red(`                           888      .d88888b.   .d8888b.  8888888 .d8888b.                    888888  .d8888b.  
+                           888     d88P" "Y88b d88P  Y88b   888  d88P  Y88b                   "88b   d88   Y88b 
+                           888     888     888 888    888   888  888    888  ==============    888   Y88b.      
+                           888     888     888 888          888  888         ==============    888   "Y888b.   
+                           888     888     888 888  88888   888  888         ==============    888     "Y88b. 
+                           888     888     888 888    888   888  888    888  ==============    888       "888 
+                           888     Y88b. .d88P Y88b  d88P   888  Y88b  d88P  ==============    88P   Y88b  d88P 
+                          88888888 "Y88888P"   "Y8888P88 8888888 "Y8888P"                     888     "Y8888P"  
+                                                                                            d88P            
+                                                                                        .d88P"  `));
+                                                                                    
+                                                                                        console.time('sleep')
+                                                                                        setTimeout(() => { console.timeEnd('sleep') }, 100) 
+                                                                                        sleep(1000)
+console.log(chalk.yellow("Booting internals.."));
+sleep.SleepMS(5000);
+console.log(chalk.blue("Connecting to web socket.."));
+sleep.SleepMS(5000);
+console.log(chalk.magenta("Fully booted"));
+sleep.SleepMS(5000);
+})
 var cmdhandler = new handler(client, "/commands", prefix)
 client.on("message", (message) => {
     cmdhandler.handleCommand(message)
@@ -55,18 +82,18 @@ channel1.send(messageDelete)
     
   }
 });
-
-  // Now, it may seem weird that we use this in the messageReactionRemove event, but we still need to check if there's an image so that we can set it, if necessary.
-  extension(reaction, attachment) {
-    const imageLink = attachment.split('.');
-    const typeOfImage = imageLink[imageLink.length - 1];
-    const image = /(jpg|jpeg|png|gif)/gi.test(typeOfImage);
-    if (!image) return '';
-    return attachment;
-  };
-};
-
-
- 
+bot.music = new (require('discord.js-lavalink-musicbot'))(bot, {
+  lavalink: {
+      "restnode": {
+          "host": "localhost",
+          "port": 8080,
+          "password":"youshallnotpass"
+      },
+      "nodes": [
+          { "host": "localhost", "port": 8080, "region": "asia", "password": "youshallnotpass" }
+      ]
+  },
+  admins: ["443166863996878878"]
+});
 
 client.login(token)
